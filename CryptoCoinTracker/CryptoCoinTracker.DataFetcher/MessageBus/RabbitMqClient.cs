@@ -20,7 +20,7 @@ public class RabbitMqClient : IMessageBusClient
         _channel = _connection.CreateModel();
         _channel.ExchangeDeclare("crypto_exchange", ExchangeType.Direct);
         _channel.QueueDeclare("crypto_data_queue", true, false, false, null);
-        _channel.QueueBind(queue: "crypto_data_queue", "crypto_exchange", "crypto_key");
+        _channel.QueueBind("crypto_data_queue", "crypto_exchange", "crypto_key");
     }
 
     public void Publish(object message)
