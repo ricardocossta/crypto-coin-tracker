@@ -36,7 +36,7 @@ public class Worker : BackgroundService
                 _logger.LogError(ex, "An error occurred while fetching crypto data.");
             }
 
-            await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
+            await Task.Delay(TimeSpan.FromMinutes(2), stoppingToken);
         }
     }
 }
