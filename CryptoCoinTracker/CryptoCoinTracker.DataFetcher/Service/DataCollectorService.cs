@@ -18,12 +18,29 @@ public class DataCollectorService : IDataCollectorService
         _apiSettings = config.Value;
     }
 
-    public async Task<Crypto?> FetchDataAsync()
+    public async Task<Crypto> FetchDataAsync()
     {
-        var httpClient = _httpClientFactory.CreateClient().ConfigureCoinGeckoClient(_apiSettings);
+        try
+        {
+            var httpClient = _httpClientFactory.CreateClient().ConfigureCoinGeckoClient(_apiSettings);
 
-        var response = await httpClient.GetStringAsync("simple/price?ids=solana,bitcoin,ethereum,binancecoin,dogecoin&vs_currencies=usd&include_market_cap=true");
+            var response = await httpClient.GetStringAsync(_apiSettings.CoinPriceByIdEndpoint);
 
-        return JsonConvert.DeserializeObject<Crypto>(response);
+            var cryptoDataResponse = JsonConvert.DeserializeObject<Crypto>(response);
+
+            return cryptoDataResponse ?? throw new Exception("Failed to deserialize API response.");
+        }
+        catch (HttpRequestException ex)
+        {
+            throw new Exception("A network error occurred while fetching data.", ex);
+        }
+        catch (JsonException ex)
+        {
+            throw new Exception("An error occurred while processing the API response.", ex);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("An error occurred while fetching data.", ex);
+        }
     }
 }
