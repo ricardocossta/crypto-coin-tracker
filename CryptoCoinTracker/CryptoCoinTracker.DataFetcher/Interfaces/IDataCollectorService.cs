@@ -4,5 +4,5 @@ namespace CryptoCoinTracker.DataFetcher.Interfaces;
 
 public interface IDataCollectorService
 {
-    Task<Crypto?> FetchDataAsync();
+    Task<Crypto> FetchDataAsync();
 }
