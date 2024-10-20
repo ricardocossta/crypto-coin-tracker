@@ -1,6 +1,6 @@
 ﻿using CryptoCoinTracker.DataProcessor.Entities;
 using CryptoCoinTracker.DataProcessor.Interface;
-using CryptoCoinTracker.DataProcessor.Models;
+using CryptoCoinTracker.Models;
 using Newtonsoft.Json;
 
 namespace CryptoCoinTracker.DataProcessor.Services;

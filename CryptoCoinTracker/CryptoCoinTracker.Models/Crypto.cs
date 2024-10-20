@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace CryptoCoinTracker.DataFetcher.Models;
+namespace CryptoCoinTracker.Models;
 
 public class Crypto
 {
