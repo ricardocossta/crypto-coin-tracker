@@ -1,4 +1,4 @@
-﻿using CryptoCoinTracker.DataFetcher.Models;
+﻿using CryptoCoinTracker.Models;
 
 namespace CryptoCoinTracker.DataFetcher.Interfaces;
 

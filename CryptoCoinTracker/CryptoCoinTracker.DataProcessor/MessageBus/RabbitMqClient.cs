@@ -1,5 +1,5 @@
 ﻿using CryptoCoinTracker.DataProcessor.Interface;
-using CryptoCoinTracker.DataProcessor.Models.Settings;
+using CryptoCoinTracker.Models.Settings;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -13,11 +13,11 @@ public class RabbitMqClient : IMessageBusClient
     private readonly ILogger<RabbitMqClient> _logger;
     private readonly ICryptoPriceService _cryptoPriceService;
 
-    public RabbitMqClient(ConsumerConnection consumerConnection, ILogger<RabbitMqClient> logger, ICryptoPriceService cryptoPriceService)
+    public RabbitMqClient(BusConnection busConnection, ILogger<RabbitMqClient> logger, ICryptoPriceService cryptoPriceService)
     {
         _logger = logger;
 
-        _connection = consumerConnection.Connection;
+        _connection = busConnection.Connection;
         _channel = _connection.CreateModel();
 
         _channel.ExchangeDeclare("crypto_exchange", ExchangeType.Direct);

@@ -3,6 +3,7 @@ using CryptoCoinTracker.DataFetcher.Interfaces;
 using CryptoCoinTracker.DataFetcher.MessageBus;
 using CryptoCoinTracker.DataFetcher.Models.Settings;
 using CryptoCoinTracker.DataFetcher.Service;
+using CryptoCoinTracker.Models.Settings;
 using RabbitMQ.Client;
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -17,7 +18,7 @@ builder.Services.Configure<CoinGeckoApiSettings>(builder.Configuration.GetSectio
 //RabbitMq
 var connectionFactory = new ConnectionFactory { HostName = "localhost", };
 var connection = connectionFactory.CreateConnection();
-builder.Services.AddSingleton(new ProducerConnection(connection));
+builder.Services.AddSingleton(new BusConnection(connection));
 
 builder.Services.AddSingleton<IMessageBusClient, RabbitMqClient>();
 

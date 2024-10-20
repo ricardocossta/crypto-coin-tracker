@@ -1,7 +1,7 @@
 ﻿using CryptoCoinTracker.DataFetcher.Extensions;
 using CryptoCoinTracker.DataFetcher.Interfaces;
-using CryptoCoinTracker.DataFetcher.Models;
 using CryptoCoinTracker.DataFetcher.Models.Settings;
+using CryptoCoinTracker.Models;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
