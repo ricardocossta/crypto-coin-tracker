@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: "rabbitmq"
+    container_name: rabbitmq
+    labels:
+      NAME: "rabbitmq"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "status"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+  cryptocointracker.datafetcher:
+    image: ${DOCKER_REGISTRY-}cryptocointrackerdatafetcher
+    build:
+      context: .
+      dockerfile: CryptoCoinTracker.DataFetcher/Dockerfile
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+  cryptocointracker.dataprocessor:
+    image: ${DOCKER_REGISTRY-}cryptocointrackerdataprocessor
+    build:
+      context: .
+      dockerfile: CryptoCoinTracker.DataProcessor/Dockerfile
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+

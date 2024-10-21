@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoCoinTracker.DataProce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoCoinTracker.Models", "CryptoCoinTracker.Models\CryptoCoinTracker.Models.csproj", "{424B0884-E712-4DBB-B023-823901B1EB82}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C152C40B-6A8E-448C-A482-262457C51E8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{424B0884-E712-4DBB-B023-823901B1EB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424B0884-E712-4DBB-B023-823901B1EB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424B0884-E712-4DBB-B023-823901B1EB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C152C40B-6A8E-448C-A482-262457C51E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C152C40B-6A8E-448C-A482-262457C51E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C152C40B-6A8E-448C-A482-262457C51E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C152C40B-6A8E-448C-A482-262457C51E8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

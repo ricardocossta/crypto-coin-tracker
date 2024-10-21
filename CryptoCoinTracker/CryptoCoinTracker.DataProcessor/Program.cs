@@ -19,7 +19,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("M
 builder.Services.AddSingleton<MongoDbContext>();
 
 //RabbitMq
-var connectionFactory = new ConnectionFactory { HostName = "localhost", };
+var connectionFactory = new ConnectionFactory { HostName = "rabbitmq", Port = 5672 };
 var connection = connectionFactory.CreateConnection();
 builder.Services.AddSingleton(new BusConnection(connection));
 
