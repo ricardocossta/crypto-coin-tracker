@@ -14,3 +14,13 @@ Technologies Used
 How It Works
 - DataFetcher: A worker that periodically queries the CoinGecko API to fetch cryptocurrency price data and publishes it to RabbitMQ.
 - DataProcessor: A worker that consumes the messages and inserts or updates the cryptocurrency data in MongoDB.
+
+How to Run
+- Ensure you have [Docker](https://www.docker.com/get-started) installed on your machine.
+- Clone the repository
+```bash
+   cd CryptoCoinTracker
+   docker-compose up --build
+```
+- Once the services are up and running, you can access the RabbitMQ management interface at http://localhost:15672 (default username: guest, password: guest) and MongoDB on localhost:27017.
+- The DataFetcher and DataProcessor services will automatically start and communicate with each other using RabbitMQ and store data in MongoDB.
