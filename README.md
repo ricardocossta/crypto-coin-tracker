@@ -17,8 +17,10 @@ How It Works
 
 How to Run
 - Ensure you have [Docker](https://www.docker.com/get-started) installed on your machine.
-- Clone the repository
+- Run:
 ```bash
+   git clone https://github.com/ricardocossta/crypto-coin-tracker.git
+   cd crypto-coin-tracker
    cd CryptoCoinTracker
    docker-compose up --build
 ```
